@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace SwimLib;
 
-namespace SwimLib
+public class RegistrationFileException : Exception
 {
-    internal class RegistrationFileException
+    public RegistrationFileException() { }
+    public RegistrationFileException(string message) : base(message)
     {
+
     }
 }

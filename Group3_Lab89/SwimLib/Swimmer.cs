@@ -2,7 +2,11 @@
 
 public class Swimmer
 {
-    public byte Age { get; }
+    DateTime today = DateTime.Now;
+    public byte Age 
+    {
+        get {return (byte)(today.Year - BDay.Year - (today < BDay.AddYears(today.Year - BDay.Year) ? 1 : 0)); } 
+    }
     public DateTime BDay { get; }
     public string Club { get; set; }
     public int Id { get; set; }
@@ -14,8 +18,6 @@ public class Swimmer
         this.BDay = bDay;
         this.Club = club;
         this.Sex = sex;
-        DateTime today = DateTime.Now;
-        this.Age = (byte)(today.Year - BDay.Year - (today < BDay.AddYears(today.Year - BDay.Year) ? 1 : 0));
     }
     public override string ToString()
     {
