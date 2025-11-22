@@ -1,5 +1,5 @@
 <Solution>
   <Project Path="Group3_Lab89/Group3_Lab89.csproj" />
   <Project Path="SwimLib/SwimLib.csproj" />
-  <Project Path="SwimLibTests/SwimLibTests.csproj" Id="c0b8dd7b-f43c-4970-ad69-3d556916eec2" />
+  <Project Path="SwimLibTests/SwimLibTests.csproj" Id="a6e48050-605e-4db0-bd32-6ce7fd0fc56f" />
 </Solution>
