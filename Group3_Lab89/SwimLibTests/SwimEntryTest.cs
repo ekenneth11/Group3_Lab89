@@ -1,10 +1,11 @@
 namespace SwimLibTests;
 
 [TestClass]
-public class Test1
+public class SwimEntryTest
 {
     [TestMethod]
     public void TestMethod1()
     {
+        //ss
     }
 }
