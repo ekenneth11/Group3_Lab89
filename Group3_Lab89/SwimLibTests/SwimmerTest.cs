@@ -2,7 +2,7 @@
 namespace SwimLibTests
 {
     [TestClass]
-    public sealed class SwimmerTest
+    public class SwimmerTest
     {
         [TestMethod] 
         public void Swimmer_Constructor_WithoutNameAdded() 
