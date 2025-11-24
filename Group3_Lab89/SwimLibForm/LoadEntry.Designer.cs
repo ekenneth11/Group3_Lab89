@@ -52,6 +52,8 @@
             modify_entry.TabIndex = 1;
             modify_entry.Text = "Modify";
             modify_entry.UseVisualStyleBackColor = true;
+            modify_entry.Visible = false;
+            modify_entry.Click += modify_entry_Click;
             // 
             // remove_entry
             // 
@@ -61,6 +63,8 @@
             remove_entry.TabIndex = 2;
             remove_entry.Text = "Delete";
             remove_entry.UseVisualStyleBackColor = true;
+            remove_entry.Visible = false;
+            remove_entry.Click += remove_entry_Click;
             // 
             // entryLoad
             // 

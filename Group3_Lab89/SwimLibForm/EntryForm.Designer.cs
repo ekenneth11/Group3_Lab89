@@ -237,6 +237,7 @@
             Controls.Add(entryGroupBox);
             Name = "EntryForm";
             Text = "Entry";
+            Load += EntryForm_Load;
             entryGroupBox.ResumeLayout(false);
             entryGroupBox.PerformLayout();
             ResumeLayout(false);

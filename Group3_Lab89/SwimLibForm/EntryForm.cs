@@ -28,7 +28,7 @@ namespace SwimLibForm
         {
             try
             {
-                //Stroke stroke, int distance, Sex sex, byte ageGroup
+          
                 int id = Convert.ToInt32(IdName.Text);
                 DateTime bday = birthdayName.Value;
                 Sex ss = (Sex)sexName.SelectedItem;
@@ -78,6 +78,20 @@ namespace SwimLibForm
         {
             DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+        private void EntryForm_Load(object sender, EventArgs e)
+        {
+            if(entryE.Swimmer != null)
+            {
+                IdName.Text = entryE.Swimmer.Id.ToString();
+                sexName.SelectedItem = entryE.Swimmer.Sex;
+                entryName.Text = entryE.Swimmer.Name.ToString();
+                clubName.Text = entryE.Swimmer.Club.ToString();
+                seedName.Text = entryE.SeedTime.ToString(@"mm:\:ss\.ff");
+                birthdayName.Value = entryE.Swimmer.BDay;
+                distanceName.Text = entryE.Event.Distance.ToString();
+                strokeBox.SelectedItem = entryE.Event.Stroke;
+            }
         }
     }
 }
