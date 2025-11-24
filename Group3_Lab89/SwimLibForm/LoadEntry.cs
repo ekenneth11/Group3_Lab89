@@ -5,12 +5,13 @@ namespace SwimLibForm
     public partial class LoadEntry : Form
     {
         private Meet currentMeet;
+        List<SwimEntry> entries;
         public LoadEntry()
         {
             InitializeComponent();
-            sexName.DataSource = Enum.GetValues(typeof(Sex));
+
         }
-        public LoadEntry(Meet meet): this()
+        public LoadEntry(Meet meet) : this()
         {
             this.currentMeet = meet;
         }
@@ -20,24 +21,46 @@ namespace SwimLibForm
 
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void entries_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void addEntry_Click(object sender, EventArgs e)
         {
-
+            SwimEntry entry = new SwimEntry(null, null, TimeSpan.Zero);
+            EntryForm frmEntry = new EntryForm(entry, currentMeet);
+            if (frmEntry.ShowDialog() == DialogResult.OK)
+            {
+                entries.Add(entry);
+                updateEntryListBox();
+            }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void entryLoad_Click(object sender, EventArgs e)
         {
+            SwimmersRegistration.RegisterSwimmers(currentMeet);
 
+            //i need to loop inside the events in the meet and the entries in the events
+            List<SwimEvent> events = currentMeet.Events;
+            foreach (SwimEvent ee in events)
+            { 
+                foreach(SwimEntry entry in ee.SwimEntries)
+                {
+                    entries.Add(entry);
+                }
+            }
+            updateEntryListBox();
+
+        }
+        private void updateEntryListBox()
+        {
+            Entries.Items.Clear();
+            foreach (SwimEntry entry in entries)
+            {
+                Entries.Items.Add(entry);
+            }
         }
     }
 }
