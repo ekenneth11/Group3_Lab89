@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="Group3_Lab89/Group3_Lab89.csproj" />
   <Project Path="SwimLib/SwimLib.csproj" />
+  <Project Path="SwimLibForm/SwimLibForm.csproj" Id="84cdf4f0-f852-4244-925c-1640b4da9e58" />
   <Project Path="SwimLibTests/SwimLibTests.csproj" Id="a6e48050-605e-4db0-bd32-6ce7fd0fc56f" />
 </Solution>
