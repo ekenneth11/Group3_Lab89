@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             entryGroupBox = new GroupBox();
-            strokeBox = new ComboBox();
-            label2 = new Label();
-            distanceName = new TextBox();
+            swimEventBox = new ComboBox();
             label1 = new Label();
             cancelButton = new Button();
             addEntry = new Button();
@@ -52,9 +50,7 @@
             // 
             // entryGroupBox
             // 
-            entryGroupBox.Controls.Add(strokeBox);
-            entryGroupBox.Controls.Add(label2);
-            entryGroupBox.Controls.Add(distanceName);
+            entryGroupBox.Controls.Add(swimEventBox);
             entryGroupBox.Controls.Add(label1);
             entryGroupBox.Controls.Add(cancelButton);
             entryGroupBox.Controls.Add(addEntry);
@@ -77,38 +73,22 @@
             entryGroupBox.TabStop = false;
             entryGroupBox.Text = "Entry";
             // 
-            // strokeBox
+            // swimEventBox
             // 
-            strokeBox.FormattingEnabled = true;
-            strokeBox.Location = new Point(224, 136);
-            strokeBox.Name = "strokeBox";
-            strokeBox.Size = new Size(121, 23);
-            strokeBox.TabIndex = 17;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(164, 139);
-            label2.Name = "label2";
-            label2.Size = new Size(46, 15);
-            label2.TabIndex = 16;
-            label2.Text = "Stroke: ";
-            // 
-            // distanceName
-            // 
-            distanceName.Location = new Point(77, 136);
-            distanceName.Name = "distanceName";
-            distanceName.Size = new Size(72, 23);
-            distanceName.TabIndex = 15;
+            swimEventBox.FormattingEnabled = true;
+            swimEventBox.Location = new Point(77, 139);
+            swimEventBox.Name = "swimEventBox";
+            swimEventBox.Size = new Size(286, 23);
+            swimEventBox.TabIndex = 20;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(6, 139);
+            label1.Location = new Point(6, 142);
             label1.Name = "label1";
-            label1.Size = new Size(58, 15);
-            label1.TabIndex = 14;
-            label1.Text = "Distance: ";
+            label1.Size = new Size(74, 15);
+            label1.TabIndex = 19;
+            label1.Text = "Swim Event: ";
             // 
             // cancelButton
             // 
@@ -133,7 +113,7 @@
             // sexName
             // 
             sexName.FormattingEnabled = true;
-            sexName.Location = new Point(218, 16);
+            sexName.Location = new Point(224, 16);
             sexName.Name = "sexName";
             sexName.Size = new Size(93, 23);
             sexName.TabIndex = 11;
@@ -186,6 +166,7 @@
             IdName.Name = "IdName";
             IdName.Size = new Size(72, 23);
             IdName.TabIndex = 5;
+            IdName.TextChanged += IdName_TextChanged;
             // 
             // Id
             // 
@@ -227,6 +208,7 @@
             entryName.Name = "entryName";
             entryName.Size = new Size(287, 23);
             entryName.TabIndex = 0;
+            entryName.TextChanged += entryName_TextChanged;
             // 
             // EntryForm
             // 
@@ -260,9 +242,7 @@
         private Label clubLabel;
         private Label nameLabel;
         private TextBox entryName;
-        private ComboBox strokeBox;
-        private Label label2;
-        private TextBox distanceName;
+        private ComboBox swimEventBox;
         private Label label1;
     }
 }

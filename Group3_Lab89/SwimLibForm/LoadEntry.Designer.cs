@@ -38,15 +38,15 @@
             // Entries
             // 
             Entries.FormattingEnabled = true;
-            Entries.Location = new Point(380, 12);
+            Entries.Location = new Point(183, 12);
             Entries.Name = "Entries";
-            Entries.Size = new Size(231, 304);
+            Entries.Size = new Size(428, 349);
             Entries.TabIndex = 0;
             Entries.SelectedIndexChanged += entries_SelectedIndexChanged;
             // 
             // modify_entry
             // 
-            modify_entry.Location = new Point(514, 322);
+            modify_entry.Location = new Point(514, 369);
             modify_entry.Name = "modify_entry";
             modify_entry.Size = new Size(97, 27);
             modify_entry.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             // remove_entry
             // 
-            remove_entry.Location = new Point(380, 322);
+            remove_entry.Location = new Point(183, 369);
             remove_entry.Name = "remove_entry";
             remove_entry.Size = new Size(97, 25);
             remove_entry.TabIndex = 2;
@@ -68,7 +68,7 @@
             // 
             // entryLoad
             // 
-            entryLoad.Location = new Point(83, 228);
+            entryLoad.Location = new Point(12, 220);
             entryLoad.Name = "entryLoad";
             entryLoad.Size = new Size(165, 120);
             entryLoad.TabIndex = 3;
@@ -78,7 +78,7 @@
             // 
             // addEntry
             // 
-            addEntry.Location = new Point(83, 43);
+            addEntry.Location = new Point(12, 41);
             addEntry.Name = "addEntry";
             addEntry.Size = new Size(165, 119);
             addEntry.TabIndex = 4;
@@ -98,7 +98,6 @@
             Controls.Add(Entries);
             Name = "LoadEntry";
             Text = "LoadEntry";
-            Load += Form1_Load;
             ResumeLayout(false);
         }
 

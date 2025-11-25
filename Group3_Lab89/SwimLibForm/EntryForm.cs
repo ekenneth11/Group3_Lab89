@@ -18,60 +18,43 @@ namespace SwimLibForm
         public EntryForm(SwimEntry entry, Meet meet)
         {
             InitializeComponent();
-            sexName.DataSource = Enum.GetValues(typeof(Sex));
-            strokeBox.DataSource = Enum.GetValues(typeof(Stroke));
             entryE = entry;
             currentMeet = meet;
+            sexName.DataSource = Enum.GetValues(typeof(Sex));
+            swimEventBox.DataSource = null;
+            swimEventBox.DataSource = currentMeet.Events;
         }
 
         private void addEntry_Click(object sender, EventArgs e)
         {
             try
             {
-          
+
                 int id = Convert.ToInt32(IdName.Text);
                 DateTime bday = birthdayName.Value;
                 Sex ss = (Sex)sexName.SelectedItem;
                 string club = clubName.Text;
-                Swimmer s = new Swimmer(id, bday, club, ss);
-                byte age = s.Age;
-                byte ageGroup;
-                if (age <= 10)
-                {
-                    ageGroup = 10;
-                }
-                else if (age <= 12)
-                {
-                    ageGroup = 11;
-                }
-                else if (age <= 14)
-                {
-                    ageGroup = 13;
-                }
-                else
-                {
-                    ageGroup = 15;
-                }
-                Stroke stk = (Stroke)strokeBox.SelectedItem;
-                int distance = Convert.ToInt32(distanceName.Text);
+                string name = entryName.Text;
+                Swimmer s = new Swimmer(id, bday, club, ss) { Name = name };
+                currentEvent = (SwimEvent)swimEventBox.SelectedItem;
 
-                TimeSpan seed = TimeSpan.ParseExact(seedName.Text, @"mm\:ss\.ff", null);
-                currentEvent = currentMeet.GetEvent(stk, distance, ss, ageGroup);
+                TimeSpan seed = TimeSpan.ParseExact(seedName.Text, @"mm\:ss\:ff", null);
                 entryE.Swimmer = s;
                 entryE.Event = currentEvent;
                 entryE.SeedTime = seed;
-
+                currentEvent.AddSwimEntry(entryE);
+                DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (FormatException ex)
             {
-                MessageBox.Show("Format is not correct");
+                MessageBox.Show("Format is not correct" + seedName.Text);
             }
             catch (ArgumentException ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            DialogResult = DialogResult.OK;
-            this.Close();
+
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -81,17 +64,26 @@ namespace SwimLibForm
         }
         private void EntryForm_Load(object sender, EventArgs e)
         {
-            if(entryE.Swimmer != null)
+            if (entryE.Swimmer.Id != 0)
             {
                 IdName.Text = entryE.Swimmer.Id.ToString();
                 sexName.SelectedItem = entryE.Swimmer.Sex;
                 entryName.Text = entryE.Swimmer.Name.ToString();
                 clubName.Text = entryE.Swimmer.Club.ToString();
-                seedName.Text = entryE.SeedTime.ToString(@"mm:\:ss\.ff");
+                seedName.Text = entryE.SeedTime.ToString(@"mm\:ss\:ff");
                 birthdayName.Value = entryE.Swimmer.BDay;
-                distanceName.Text = entryE.Event.Distance.ToString();
-                strokeBox.SelectedItem = entryE.Event.Stroke;
+                swimEventBox.SelectedItem = entryE.Event;
             }
+        }
+
+        private void IdName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void entryName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
